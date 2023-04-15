@@ -4,15 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Netflix Series</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    ///Order By title
-    ///Order by upVote
-    ///Order By downVote
-    ///Order By Best
     
+    <header>
+        <div id="netflix-logo-box">
+            <img id="netflix-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png" alt="Netflix-Logo">
+        </div>
+    </header>
+    <main>
+        <div id="main-header">
+            <h2>TV Series</h2>
+            <div class="button-box">
+                <button class="order-btn" onclick="orderByTitle()">Order By Title</button>
+                <button class="order-btn" onclick="orderByUpVotes()">Order By UP Votes</button>
+                <button class="order-btn" onclick="orderByDownVotes()">Order By Down Votes</button>
+                <button class="order-btn" onclick="orderByBestSeries()">Order By Best Votes</button>
+            </div>
+        </div>
+        <div id="series-box">
+            <span id="order-span"></span>
+
+        </div>
+    </main>
+    <footer>
+        <div class="social">
+
+        </div>
+        <ul class="services">
+
+        </ul>
+        <div class="button-service">
+
+        </div>
+        <div class="copyright">
+
+        </div>
+    </footer>
+
 </body>
+<script src="./services/data-service.js"></script>
 <script src="./model/serie.js"></script>
+<script src="./model/collection.js"></script>
+<script src="./app.js"></script>
 </html>
