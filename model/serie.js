@@ -4,7 +4,7 @@ class Serie{
         this.title = title;
         this.creator = creator;
         this._seasons = seasons;
-        this.isCompleted = isCompleted;
+        this._isCompleted = isCompleted;
         this.upVotes = upVotes;
         this.downVotes = downVotes;
         this.imageUrl = imageUrl;
@@ -22,22 +22,45 @@ class Serie{
         return this._seasons;
     };
 
+    get isCompleted() {
+        return this._isCompleted;
+    }
+
+    set isCompleted(status) {
+        if(typeof status === 'boolean') {
+            this._isCompleted = status;
+            return this._isCompleted;
+        };
+        return this._isCompleted;
+    };
+
     static fromSeriesObject(serieObject) {
         return new Serie(serieObject.title, serieObject.creator, serieObject.seasons, serieObject.isCompleted, serieObject.upVotes, serieObject.downVotes, serieObject.imageUrl, serieObject.id);
     };
 
     get ifIsCompleted() {
-        if(this.isCompleted) {
+        if(this._isCompleted) {
             return 'Completed';
         };
         return 'In progress';
     };
 
+    upVotesPlus() {
+        return this.upVotes + 1;
+    };
+
+    downVotesPlus() {
+        return this.downVotes + 1;
+    };
+
     rating() {
-        const totVotes = (this.upVotes + this.downVotes) / 100;
-        const result = this.upVotes / totVotes;
-        return result + '%';
-    }
+        if(this.upVotes !== 0) {
+            const totVotes = (this.upVotes + this.downVotes) / 100;
+            const result = this.upVotes / totVotes;
+            return result + '%';
+        }
+        return 0 + '%';
+    };
 
     compareByTitle(serie2) {
         return this.title.localeCompare(serie2.title);
@@ -80,7 +103,7 @@ class Serie{
             title: this.title,
             creator: this.creator,
             seasons: this._seasons,
-            isCompleted: this.isCompleted,
+            isCompleted: this._isCompleted,
             upVotes: this.upVotes,
             downVotes: this.downVotes,
             imageUrl: this.imageUrl,
