@@ -253,6 +253,18 @@ a:hover {
 
 @media screen and (max-width: 1300px) {
 
+    #netflix-logo-box {
+        height: 200px;
+    }
+    
+    #netflix-logo {
+        width: 500px;
+    }
+    
+    h2 {
+        margin-left: 30px;
+    }
+
     .series {
         width: 80%;
         height: auto;
@@ -262,19 +274,212 @@ a:hover {
         font-size: x-large;
         display: grid;
         grid-template-columns: repeat(7, 1fr) ;
-        grid-template-rows: repeat(7, 1fr) ;
+        grid-template-rows: repeat(5, 1fr) ;
         grid-template-areas:
-        "i i i i i i i" 
         "i i i i i i i" 
         "i i i i i i i"
         "u u u . . . ." 
-        "u u u . . . ." 
-        "u u u . . . ." 
-        "r r . . . b1 b2";
+        "u u u . . . ."
+        ". r r . . b1 b2";
     };
 
-    .rating-span {
-        margin-left: 40px;
+    .services {
+        width: 80%;
+        padding: 0px;
+        grid-template-columns: repeat(8, 1fr) ;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+            "l1 l1 l4 l4 l7 l7 l10 l10"
+            "l2 l2 l5 l5 l8 l8 l11 l11"
+            "l3 l3 l6 l6 l9 l9 l12 l12";
+    };
+
+}
+
+@media screen and (max-width: 1080px) {
+    
+    .button-box {
+        padding-left: 20px;
+    }
+
+    #main-header {
+        display: initial;
+    }
+
+    .social {
+        margin-left: 60px;
+    }
+
+    .services {
+        width: 80%;
+        padding: 0px;
+        grid-template-columns: repeat(4, 1fr) ;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+            "l1 l4 l7 l10"
+            "l2 l5 l8 l11"
+            "l3 l6 l9 l12";
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+
+    #netflix-logo {
+        width: 300px;
+        height: 100px;
+    }
+
+    .services {
+        width: 80%;
+        padding: 0px;
+        grid-template-columns: repeat(3, 1fr) ;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "l1 l5 l9"
+            "l2 l6 l10"
+            "l3 l7 l11"
+            "l4 l8 l12";
+    }
+
+    .series {
+        grid-template-columns: repeat(7, 1fr) ;
+        grid-template-rows: repeat(5, 1fr) ;
+        grid-template-areas:
+        "i i i i i i i" 
+        "i i i i i i i"
+        "u u u u u u u" 
+        "u u u u u u u"
+        ". r r . b1 b2 .";
+    };
+
+}
+
+@media screen and (max-width: 680px) {
+
+    .main-header {
+        height: auto;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    .button-box {
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+
+    .order-btn {
+        width: 90px;
+        height: 60px;
+        margin: 10px;
+    }
+
+    .series {
+        grid-template-columns: repeat(8, 1fr) ;
+        grid-template-rows: repeat(6, 1fr) ;
+        grid-template-areas:
+        "i i i i i i i i" 
+        "i i i i i i i i"
+        "u u u u u u . ." 
+        "u u u u u u . ."
+        "u u u u u u . ."
+        ". r r . b1 . b2 .";
+    }
+
+    .services {
+        width: 80%;
+        padding: 0px;
+        grid-template-columns: repeat(2, 1fr) ;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas:
+            "l1 l7"
+            "l2 l8"
+            "l3 l9"
+            "l4 l10"
+            "l5 l11"
+            "l6 l12";
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .upVotes-btn, .downVotes-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .order-btn {
+        width: 70px;
+        height: 75px;
+        margin: 2px;
+    }
+
+    .series {
+        width: 100%;
+        grid-template-columns: repeat(8, 1fr) ;
+        grid-template-rows: repeat(4, 1fr) ;
+        grid-template-areas:
+        "i i i i i i i i"
+        "u u u u u u u ." 
+        "u u u u u u u ." 
+        ". r r . b1 . b2 .";
+    }
+
+    .services {
+        width: 80%;
+        padding: 0px;
+        grid-template-columns: repeat(1, 1fr) ;
+        grid-template-rows: repeat(12, 1fr);
+        grid-template-areas:
+            "l1"
+            "l2"
+            "l3"
+            "l4"
+            "l5"
+            "l6"
+            "l7"
+            "l8"
+            "l9"
+            "l10"
+            "l11"
+            "l12";
+    }
+
+}
+
+@media screen and (max-width: 290px) {
+
+    #netflix-logo {
+        width: 200px;
+        height: 70px;
+    }
+
+    h2 {
+        margin-left: 5px;
+    }
+
+    .button-box {
+        padding-left: 0px;
+    }
+
+    .series {
+        width: 100%;
+        grid-template-columns: repeat(8, 1fr) ;
+        grid-template-rows: repeat(5, 1fr) ;
+        grid-template-areas:
+        "i i i i i i i i"
+        "u u u u u u u u" 
+        "u u u u u u u u" 
+        ". r r r r . . ."
+        ". . . . b1 . b2 .";
     }
 
 }
