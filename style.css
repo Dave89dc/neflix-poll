@@ -46,7 +46,7 @@ h2 {
 }
 
 .order-btn:hover {
-    background-color: rgba(238, 238, 238, 0.753);
+    background-color: rgba(212, 212, 212, 0.753);
 }
 
 .series {
@@ -58,14 +58,11 @@ h2 {
     font-size: x-large;
     display: grid;
     grid-template-columns: repeat(10, 1fr) ;
-    grid-template-rows: repeat(7, 1fr) ;
+    grid-template-rows: repeat(4, 1fr) ;
     grid-template-areas:
-    ". . . . . . . . . ."
     "i i i i i u u u u ." 
     "i i i i i u u u u ." 
     "i i i i i u u u u ." 
-    ". . . . . . . . . ." 
-    ". . . . . . . . . ." 
     "r r . . . . . . b1 b2";
 }
 
@@ -98,6 +95,15 @@ ul {
     border: 2px solid white;
 }
 
+.upVotes-btn:active, .downVotes-btn:active {
+    background-color: #4f4f4f;
+}
+
+.upVotes-img, .downVotes-img {
+    width: 46px;
+    height: 46px;
+}
+
 .series:hover {
     width: 85%;
     height: 700px;
@@ -105,7 +111,7 @@ ul {
 }
 
 .series-img {
-    width: 85%;
+    width: 90%;
 }
 
 li {
@@ -229,6 +235,7 @@ a:hover {
     height: 30px;
     width: 120px;
     margin: 10px;
+    cursor: pointer;
 }
 
 .copyright {
@@ -247,7 +254,7 @@ a:hover {
 
     .series-img {
         width: 100%;
-    };
+    }
 
 }
 
@@ -278,10 +285,14 @@ a:hover {
         grid-template-areas:
         "i i i i i i i" 
         "i i i i i i i"
-        "u u u . . . ." 
+        "u u u . . . ."
         "u u u . . . ."
         ". r r . . b1 b2";
-    };
+    }
+
+    .series:hover {
+        height: auto;
+    }
 
     .services {
         width: 80%;
@@ -292,7 +303,7 @@ a:hover {
             "l1 l1 l4 l4 l7 l7 l10 l10"
             "l2 l2 l5 l5 l8 l8 l11 l11"
             "l3 l3 l6 l6 l9 l9 l12 l12";
-    };
+    }
 
 }
 
@@ -351,7 +362,7 @@ a:hover {
         "u u u u u u u" 
         "u u u u u u u"
         ". r r . b1 b2 .";
-    };
+    }
 
 }
 
@@ -386,7 +397,11 @@ a:hover {
         "u u u u u u . ." 
         "u u u u u u . ."
         "u u u u u u . ."
-        ". r r . b1 . b2 .";
+        ". r r r . b1 b2 .";
+    }
+
+    .upVotes-btn, .downVotes-btn {
+        margin: 12px;
     }
 
     .services {
@@ -412,6 +427,11 @@ a:hover {
         height: 45px;
     }
 
+    .upVotes-img, .downVotes-img {
+        width: 28px;
+        height: 28px;
+    }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -430,7 +450,11 @@ a:hover {
         "i i i i i i i i"
         "u u u u u u u ." 
         "u u u u u u u ." 
-        ". r r . b1 . b2 .";
+        ". r r r . b1 b2 .";
+    }
+
+    .upVotes-btn, .downVotes-btn {
+        margin: 8px;
     }
 
     .services {

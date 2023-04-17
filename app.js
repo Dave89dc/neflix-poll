@@ -35,12 +35,6 @@ function orderByBestSeries() {
     displayNetflixSeries();
 };
 
-// function displayNetflixSeries() {
-//     createListForSeries();
-//     functionForUpVotesButton();
-//     functionForDownVotesButton();
-// };
-
 function displayNetflixSeries() {
     const seriesBox = document.getElementById('series-box');
     seriesBox.innerHTML = '';
@@ -100,30 +94,39 @@ function displayNetflixSeries() {
 
         const ratingSpan = document.createElement('span');
         ratingSpan.classList.add('rating-span');
-        const ratingText = document.createTextNode('Rating: ' + serie.rating());
+        const ratingText = document.createTextNode('Rating: ' + serie.rating() + '%');
         ratingSpan.appendChild(ratingText);
 
+        
         const upVotesBtn = document.createElement('button');
         const downVotesBtn = document.createElement('button');
+        
         upVotesBtn.classList.add('upVotes-btn');
         downVotesBtn.classList.add('downVotes-btn');
 
         const upVotesImg = document.createElement('img');
         const downVotesImg = document.createElement('img');
 
-        upVotesBtn.src = './assets/thumbs-up-solid.svg';
-        downVotesBtn.src = './assets/thumbs-down-solid.svg';
+        upVotesImg.src = './assets/up.svg';
+        downVotesImg.src = './assets/down.svg';
+
+        upVotesImg.classList.add('upVotes-img');
+        downVotesImg.classList.add('downVotes-img');
 
         upVotesBtn.appendChild(upVotesImg);
         downVotesBtn.appendChild(downVotesImg);
 
         upVotesBtn.addEventListener('click', (event) => {
             serie.upVotesPlus();
-            displayNetflixSeries();
+            DataService.putSerie(serie).than(updateSerie => {
+                displayNetflixSeries();
+            });
         });
         downVotesBtn.addEventListener('click', (event) => {
             serie.downVotesPlus();
-            displayNetflixSeries();
+            DataService.putSerie(serie).than(updateSerie => {
+                displayNetflixSeries();
+            });
         });
         
         divSeries.appendChild(serieImg);
@@ -134,44 +137,4 @@ function displayNetflixSeries() {
 
         seriesBox.appendChild(divSeries);
     };
-    // for (let i = 0; i < seriesArray.length; i++) {
-    //     const serie = seriesArray[i];
-    //     const upVotesButton = document.querySelector('upVotes-btn');
-    //     upVotesButton.addEventListener('click', (event) => {
-    //         serie.upVotesPlus();
-    //         displayNetflixSeries();
-    //     });
-        
-    //     const downVotesButton = document.querySelector('downVotes-btn');
-    //     downVotesButton.addEventListener('click', (event) => {
-    //         serie.downVotesPlus();
-    //         displayNetflixSeries();
-    //     });
-    // };
 };
-
-// function functionForUpVotesButton() {
-//     const seriesArray = netflixSeriesList.series;
-//     for (let i = 0; i < seriesArray.length; i++) {
-//         const serie = seriesArray[i];
-//         const upVotesButton = document.querySelector('upVotes-btn');
-//         upVotesButton.addEventListener('click', (event) => {
-//             const n = serie.upVotes;
-//             return n + 1;
-//         });
-//         displayNetflixSeries();
-//     };
-// };
-
-// function functionForDownVotesButton() {
-//     const seriesArray = netflixSeriesList.series;
-//     for (let i = 0; i < seriesArray.length; i++) {
-//         const serie = seriesArray[i];
-//         const downVotesButton = document.querySelector('downVotes-btn');
-//         downVotesButton.addEventListener('click', (event) => {
-//             const n = serie.downVotes;
-//             return n + 1;
-//         });
-//         displayNetflixSeries();
-//     };
-// };

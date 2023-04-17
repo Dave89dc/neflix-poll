@@ -46,20 +46,24 @@ class Serie{
     };
 
     upVotesPlus() {
-        return this.upVotes + 1;
+        const n = this.upVotes;
+        this.upVotes = n + 1;
+        return this.upVotes;
     };
 
     downVotesPlus() {
-        return this.downVotes + 1;
+        const n = this.downVotes;
+        this.downVotes = n + 1;
+        return this.downVotes;
     };
 
     rating() {
         if(this.upVotes !== 0) {
             const totVotes = (this.upVotes + this.downVotes) / 100;
             const result = this.upVotes / totVotes;
-            return result + '%';
+            return Math.trunc(result);
         }
-        return 0 + '%';
+        return 0;
     };
 
     compareByTitle(serie2) {
@@ -68,9 +72,9 @@ class Serie{
 
     compareByUpVotes(serie2) {
         if (this.upVotes > serie2.upVotes) {
-            return 1;
-        }else if ( this.upVotes < serie2.upVotes) {
             return -1;
+        }else if ( this.upVotes < serie2.upVotes) {
+            return 1;
         } else {
             return 0;
         };
@@ -78,21 +82,21 @@ class Serie{
 
     compareByDownVotes(serie2) {
         if (this.downVotes > serie2.downVotes) {
-            return 1;
-        }else if (this.downVotes < serie2.downVotes) {
             return -1;
+        }else if (this.downVotes < serie2.downVotes) {
+            return 1;
         } else {
             return 0;
         };
     };
 
     compareByBest(serie2) {
-        const differenceVotes1 = this.upVotes - this.downVotes;
-        const differenceVotes2 = serie2.upVotes - serie2.downVotes;
-        if(differenceVotes1 > differenceVotes2) {
-            return 1;
-        } else if(differenceVotes1 < differenceVotes2) {
+        const rating1 = this.rating();
+        const rating2 = serie2.rating();
+        if(rating1 > rating2) {
             return -1;
+        } else if(rating1 < rating2) {
+            return 1;
         } else {
             return 0;
         };
