@@ -8,6 +8,7 @@
 html, body {
     margin: 0px;
     padding: 0px;
+    padding-bottom: 20px;
     font-family: 'DM Sans', sans-serif;
     background-color: #141414;
     color: white;
@@ -364,6 +365,10 @@ a:hover {
         ". r r . b1 b2 .";
     }
 
+    .series:hover {
+        width: 100%;
+    }
+
 }
 
 @media screen and (max-width: 680px) {
@@ -438,7 +443,7 @@ a:hover {
 
     .order-btn {
         width: 70px;
-        height: 75px;
+        height: 78px;
         margin: 2px;
     }
 
