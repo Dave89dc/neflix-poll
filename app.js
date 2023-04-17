@@ -118,12 +118,14 @@ function displayNetflixSeries() {
 
         upVotesBtn.addEventListener('click', (event) => {
             serie.upVotesPlus();
+            displayNetflixSeries();
             DataService.putSerie(serie).than(updateSerie => {
                 displayNetflixSeries();
             });
         });
         downVotesBtn.addEventListener('click', (event) => {
             serie.downVotesPlus();
+            displayNetflixSeries();
             DataService.putSerie(serie).than(updateSerie => {
                 displayNetflixSeries();
             });
