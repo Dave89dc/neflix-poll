@@ -8,7 +8,7 @@ class Serie{
         this.upVotes = upVotes;
         this.downVotes = downVotes;
         this.imageUrl = imageUrl;
-        if(id) {
+        if(id !== undefined) {
             this.id = id;
         }
     };

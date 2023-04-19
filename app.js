@@ -53,8 +53,9 @@ function displayNetflixSeries() {
         //                             </ul>
         //                             <span class='rating-span'>Rating: ${serie.rating()}</span>
         //                             <button id='upVotes-btn${i}'><img class='votes-btn' src='./assets/thumbs-up-solid.svg' alt='up-icon'></button>
-        //                             <button id='downVotes-btn${i}'><img class='votes-btn' src='./assets/thumbs-down-solid.svg' alt='down-icon'></button>ù
+        //                             <button id='downVotes-btn${i}'><img class='votes-btn' src='./assets/thumbs-down-solid.svg' alt='down-icon'></button>
         //                         </div>`;
+    //};
         const divSeries = document.createElement('div');
         divSeries.classList.add('series');
 
@@ -118,15 +119,13 @@ function displayNetflixSeries() {
 
         upVotesBtn.addEventListener('click', (event) => {
             serie.upVotesPlus();
-            displayNetflixSeries();
-            DataService.putSerie(serie).than(updateSerie => {
+            DataService.putSerie(serie).then(updateSerie => {
                 displayNetflixSeries();
             });
         });
         downVotesBtn.addEventListener('click', (event) => {
             serie.downVotesPlus();
-            displayNetflixSeries();
-            DataService.putSerie(serie).than(updateSerie => {
+             DataService.putSerie(serie).then(updateSerie => {
                 displayNetflixSeries();
             });
         });
