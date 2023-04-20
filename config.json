@@ -1,0 +1,6 @@
+{
+    "backgroundColor": "red",
+    "maxUsers": 3,
+    "isLoginMandatory": false,
+    "acceptedUsers": ["pippo", "pluto", "paperino"]
+}
