@@ -42,13 +42,22 @@ function orderByBestSeries() {
 function saveNewSerie(){
     const titleInput = document.getElementById('title-input');
     const creatorInput = document.getElementById('creator-input');
+    const numOfSeasonsInput = document.getElementById('number-of-seasons-input');
+    const imageInput = document.getElementById('image-input');
+    const isCompleteInput = document.getElementById('checkbox');
 
     const newSerieTitle = titleInput.value;
     const newSerieCreator = creatorInput.value;
+    const newNumberOfSeasons = numOfSeasonsInput.value
+    const newSerieImage = imageInput.value;
 
     const newSerie = new Serie(newSerieTitle, newSerieCreator);
+    newSerie.imageUrl = newSerieImage;
+    newSerie.seasons = parseInt(newNumberOfSeasons);
 
-    console.log(newSerie);
+    if(isCompleteInput.checked){
+        newSerie.isCompleted = true;
+    };
 
     startLoading();
     DataService.postSerie(newSerie).then(savedSerie => {
@@ -60,6 +69,14 @@ function saveNewSerie(){
         displayErrorMessage('Accidenti, in questo momento non puoi votare!');
         stopLoading();
     });
+
+    titleInput.value = '';
+    creatorInput.value = '';
+    numOfSeasonsInput.value = '';
+    imageInput.value = '';
+    if(isCompleteInput.checked){
+        isCompleteInput.checked = !isCompleteInput.checked;
+    }
 };
 
 function displayErrorMessage(message){

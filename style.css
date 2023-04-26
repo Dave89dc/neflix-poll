@@ -229,6 +229,38 @@ a:hover {
     grid-area: l12;
 }
 
+.new-serie-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+input {
+    margin: 20px;
+    width: 250px;
+    height: 25px;
+}
+
+.checkbox {
+    cursor: pointer;
+}
+
+.save-new-serie-btn {
+    margin: 20px;
+    padding: 5px;
+    width: 120px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.save-new-serie-btn:hover {
+    background-color: rgba(212, 212, 212, 0.753);
+}
+
 .service-btn-box {
     width: 55%;
     margin: auto;

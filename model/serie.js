@@ -1,6 +1,6 @@
 class Serie{
 
-    constructor(title, creator, seasons, isCompleted = false, upVotes, downVotes, imageUrl, id){
+    constructor(title, creator, seasons, isCompleted = false, upVotes = 0, downVotes = 0, imageUrl, id){
         this.title = title;
         this.creator = creator;
         this._seasons = seasons;

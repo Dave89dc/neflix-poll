@@ -32,12 +32,19 @@
         <div id="series-box">
 
         </div>
-        <div>
-            <span>Insert Ttle</span>
-            <input type="text" id="title-input">
-            <span>Insert Creator</span>
-            <input type="text" id="creator-input">
-            <button onclick="saveNewSerie()">Save</button>
+        <div class="new-serie-box">
+            <h2>Insert New Series</h2>
+            <span>Insert Title:</span>
+            <input type="text" id="title-input" placeholder="Write new title">
+            <span>Insert Creator:</span>
+            <input type="text" id="creator-input" placeholder="Write new creator">
+            <span>Insert Number of Seasons:</span>
+            <input type="text" id="number-of-seasons-input" placeholder="Write the number of seasons">
+            <span>Insert URL Image:</span>
+            <input type="text" id="image-input" placeholder="Write url image">
+            <span>Select if is complete:</span>
+            <input id="checkbox" class="checkbox" type="checkbox">
+            <button class="save-new-serie-btn" onclick="saveNewSerie()">Save</button>
         </div>
     </main>
     <footer>
