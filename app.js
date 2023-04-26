@@ -1,10 +1,14 @@
 let netflixSeriesList = new Collection();
 
 displayNetflixSeries();
-
+startLoading();
 DataService.getSeries().then(data => {
     fillSeriesArrayFromServer(data);
     displayNetflixSeries();
+    stopLoading();
+}).catch(error => {
+    displayErrorMessage('Accidenti, si è verificato un errore!');
+    stopLoading();
 });
 
 function fillSeriesArrayFromServer(data) {
@@ -33,6 +37,46 @@ function orderByDownVotes() {
 function orderByBestSeries() {
     netflixSeriesList.sortByBestSeries();
     displayNetflixSeries();
+};
+
+function saveNewSerie(){
+    const titleInput = document.getElementById('title-input');
+    const creatorInput = document.getElementById('creator-input');
+
+    const newSerieTitle = titleInput.value;
+    const newSerieCreator = creatorInput.value;
+
+    const newSerie = new Serie(newSerieTitle, newSerieCreator);
+
+    console.log(newSerie);
+
+    startLoading();
+    DataService.postSerie(newSerie).then(savedSerie => {
+        newSerie.id = savedSerie.id;
+        netflixSeriesList.addSerie(newSerie);
+        displayNetflixSeries();
+        stopLoading();
+    }).catch(error => {
+        displayErrorMessage('Accidenti, in questo momento non puoi votare!');
+        stopLoading();
+    });
+};
+
+function displayErrorMessage(message){
+    const errorMessage = document.getElementById('error-message');
+    const errorText = document.createTextNode(message);
+    errorMessage.appendChild(errorText);
+};
+
+function startLoading() {
+    const loadingIcon = document.getElementById('loading-icon');
+    console.log('pippo', loadingIcon)
+    loadingIcon.style.display = 'inline-block';
+};
+
+function stopLoading() {
+    const loadingIcon = document.getElementById('loading-icon');
+    loadingIcon.style.display = 'none';
 };
 
 function displayNetflixSeries() {
@@ -119,14 +163,24 @@ function displayNetflixSeries() {
 
         upVotesBtn.addEventListener('click', (event) => {
             serie.upVotesPlus();
+            startLoading();
             DataService.putSerie(serie).then(updateSerie => {
                 displayNetflixSeries();
+                stopLoading();
+            }).catch(error => {
+                displayErrorMessage('Accidenti, in questo momento non puoi votare!');
+                stopLoading();
             });
         });
         downVotesBtn.addEventListener('click', (event) => {
             serie.downVotesPlus();
+            startLoading();
              DataService.putSerie(serie).then(updateSerie => {
                 displayNetflixSeries();
+                stopLoading();
+            }).catch(error => {
+                displayErrorMessage('Accidenti, in questo momento non puoi votare!');
+                stopLoading();
             });
         });
         
